@@ -1,0 +1,12 @@
+#search {
+  width: 500px;
+}
+
+.SearchBox input::placeholder {
+  color: #01d277 !important;
+}
+
+.SearchBox .fa {
+  color: #01d277;
+  margin-left: -30px;
+}
