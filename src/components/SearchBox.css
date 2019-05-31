@@ -6,7 +6,11 @@
   color: #01d277 !important;
 }
 
+.SearchBox input {
+  border-radius: 50px;
+}
+
 .SearchBox .fa {
   color: #01d277;
-  margin-left: -30px;
+  margin-left: -40px;
 }

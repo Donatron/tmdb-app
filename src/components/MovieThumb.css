@@ -1,0 +1,58 @@
+.MovieThumb {
+  text-align: left;
+  width: auto;
+}
+
+.MovieThumb img {
+  height: 300px;
+  width: auto;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.MovieThumb .badge {
+  background: #01d277;
+  border-radius: 8px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 14px;
+  width: 40px;
+  /* identical to box height, or 117% */
+
+  text-align: center;
+
+  color: #ffffff;
+
+  position: absolute;
+  top: 8px;
+  left: 20px;
+}
+
+.MovieThumb h3,
+.MovieThumb p {
+  display: inline-block !important;
+}
+
+.MovieThumb h3 {
+  font-family: "Roboto" sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  margin-bottom: 0;
+
+  color: #e6f7ff;
+}
+
+.MovieThumb p {
+  font-family: "Roboto" sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+
+  color: #a1d1e6;
+}
