@@ -4,6 +4,8 @@ import "./SearchBox.css";
 
 class SearchBox extends Component {
   render() {
+    const { onKeyUp } = this.props;
+
     return (
       <div className="SearchBox my-5">
         <form className="form-inline my- my-lg-0">
@@ -13,6 +15,8 @@ class SearchBox extends Component {
             placeholder="Search"
             aria-label="Search"
             id="search"
+            autoComplete="off"
+            onChange={onKeyUp}
           />
           <i className="fa fa-search" />
         </form>

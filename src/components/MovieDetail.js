@@ -1,17 +1,107 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { fetchMovie, clearSelectedMovie } from "../actions";
+import moment from "moment";
 
 import "./MovieDetail.css";
+import config from "../config/config";
+import Loader from "./Loader";
 
 class MovieDetail extends Component {
+  componentDidMount() {
+    const { id } = this.props.match.params;
+    this.props.fetchMovie(id);
+  }
+
+  componentWillUnmount() {
+    this.props.clearSelectedMovie();
+  }
+
+  formatRunTime(runtime) {
+    const hours = Math.floor(runtime / 60);
+    const minutes = runtime - hours * 60;
+
+    return {
+      hours,
+      minutes
+    };
+  }
+
+  renderMovie() {
+    const { imageRootURL } = config;
+    const { selectedMovie } = this.props;
+    console.log(selectedMovie);
+    const {
+      backdrop_path,
+      original_title,
+      overview,
+      poster_path,
+      release_date,
+      vote_average,
+      runtime
+    } = selectedMovie;
+
+    let formattedTime = this.formatRunTime(runtime);
+
+    let formattedDate = moment(release_date).format("YYYY");
+
+    if (Object.keys(this.props.selectedMovie).length === 0) {
+      return <Loader />;
+    } else {
+      return (
+        <div>
+          <div className="MovieDetail-header">
+            <div className="MovieDetail-header-image">
+              <img
+                src={`${imageRootURL}/${backdrop_path}`}
+                alt={original_title}
+              />
+              <Link to="/">
+                <i className="fa fa-arrow-left" />
+              </Link>
+            </div>
+          </div>
+          <div className="container">
+            <div className="row">
+              <div className="MovieDetail-details col col-md-10 col-lg-8 m-auto">
+                <article className="">
+                  <img
+                    src={`${imageRootURL}/${poster_path}`}
+                    alt={original_title}
+                  />
+                  <div className="title">
+                    <h2>{original_title}</h2>
+                    <p>
+                      {formattedDate} . {vote_average * 10}% User Score{" "}
+                    </p>
+                    <p>
+                      {formattedTime.hours}h {formattedTime.minutes} min
+                    </p>
+                  </div>
+                </article>
+                <hr />
+                <div className="MovieDetail-overview">
+                  <h2>Overview</h2>
+                  <p>{overview}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    }
+  }
+
   render() {
     return (
       <div className="MovieDetail">
-        <div className="MovieDetail-header">
+        {this.renderMovie()}
+        {/* <div className="MovieDetail-header">
           <div className="MovieDetail-header-image">
             <img
-              src="https://cdn-images-1.medium.com/max/2600/1*27HzZV1GL-H1D-gdhXOsIg.jpeg"
-              alt="bohemian rhapsody"
+              src={`${imageRootURL}/${backdrop_path}`}
+              alt={original_title}
             />
             <Link to="/">
               <i className="fa fa-arrow-left" />
@@ -23,36 +113,39 @@ class MovieDetail extends Component {
             <div className="MovieDetail-details col-8 m-auto">
               <article className="">
                 <img
-                  src="https://m.media-amazon.com/images/M/MV5BMTA2NDc3Njg5NDVeQTJeQWpwZ15BbWU4MDc1NDcxNTUz._V1_.jpg"
-                  className="db br2 br--top grow"
-                  alt="star wars film."
+                  src={`${imageRootURL}/${poster_path}`}
+                  alt={original_title}
                 />
                 <div className="title">
-                  <h2>Bohemian Rhapsody</h2>
-                  <p>2018 . 99% User Score </p>
-                  <p>2h 15min</p>
+                  <h2>{original_title}</h2>
+                  <p>
+                    {formattedDate} . {vote_average * 10}% User Score{" "}
+                  </p>
+                  <p>
+                    {formattedTime.hours}h {formattedTime.minutes} min
+                  </p>
                 </div>
               </article>
               <hr />
               <div className="MovieDetail-overview">
                 <h2>Overview</h2>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                  irure dolor in reprehenderit in voluptate velit esse cillum
-                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                  cupidatat non proident, sunt in culpa qui officia deserunt
-                  mollit anim id est laborum.
-                </p>
+                <p>{overview}</p>
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     );
   }
 }
 
-export default MovieDetail;
+const mapStateToProps = state => {
+  return {
+    selectedMovie: state.selectedMovie
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { fetchMovie, clearSelectedMovie }
+)(MovieDetail);

@@ -1,6 +1,6 @@
 .MovieThumb {
   text-align: left;
-  width: auto;
+  width: 100%;
 }
 
 .MovieThumb img {
@@ -55,4 +55,10 @@
   line-height: 14px;
 
   color: #a1d1e6;
+}
+
+@media screen and (max-width: 768px) {
+  .MovieThumb {
+    width: 210px;
+  }
 }

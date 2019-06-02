@@ -8,14 +8,14 @@ import MovieDetail from "./components/MovieDetail";
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Router>
+      <Router>
+        <div className="App">
           <Switch>
-            <Route path="/movie-detail" exact component={MovieDetail} />
+            <Route path="/movie-detail/:id" exact component={MovieDetail} />
             <Route path="/" exact component={Home} />
           </Switch>
-        </Router>
-      </div>
+        </div>
+      </Router>
     );
   }
 }

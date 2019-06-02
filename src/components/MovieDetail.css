@@ -92,3 +92,33 @@
   margin: auto;
   text-align: left;
 }
+
+@media screen and (max-width: 1300px) {
+  .MovieDetail-header {
+    width: 80%;
+  }
+
+  .MovieDetail-details article {
+    margin-top: -10px !important;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .MovieDetail-header {
+    width: 90%;
+  }
+
+  .MovieDetail-details article {
+    margin-top: -80px !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .MovieDetail-header {
+    width: 100%;
+  }
+
+  .MovieDetail-details article {
+    margin-top: -140px !important;
+  }
+}

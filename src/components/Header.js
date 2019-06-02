@@ -1,9 +1,29 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { searchMovies } from "../actions";
 
 import "./Header.css";
 import SearchBox from "./SearchBox";
 
 class Header extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      searchTerm: ""
+    };
+  }
+
+  handleKeyUp = e => {
+    e.preventDefault();
+
+    this.setState({ searchTerm: e.target.value });
+
+    setTimeout(() => {
+      this.props.searchMovies(this.state.searchTerm);
+    }, 200);
+  };
+
   render() {
     return (
       <div className="Header">
@@ -14,10 +34,13 @@ class Header extends Component {
             alt="tmdb"
           />
         </div>
-        <SearchBox />
+        <SearchBox onKeyUp={this.handleKeyUp} />
       </div>
     );
   }
 }
 
-export default Header;
+export default connect(
+  null,
+  { searchMovies }
+)(Header);
