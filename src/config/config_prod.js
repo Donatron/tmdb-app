@@ -4,5 +4,3 @@ module.exports = {
   APIKey: process.env.API_KEY,
   imageRootURL: process.env.IMAGE_ROOT_URL
 };
-
-console.log("Production config");
