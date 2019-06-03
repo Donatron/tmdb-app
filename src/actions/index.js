@@ -7,6 +7,8 @@ export const CLEAR_MOVIE = "CLEAR_MOVIE";
 export const SEARCH_MOVIES = "SEARCH_MOVIES";
 
 export const fetchMovies = () => async dispatch => {
+  console.log(config.APIKey);
+
   const request = await axios.get(
     `https://api.themoviedb.org/3/movie/popular?api_key=${config.APIKey}=en-US`
   );
