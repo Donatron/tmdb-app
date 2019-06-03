@@ -5,6 +5,7 @@ export const FETCH_MOVIES = "FETCH_MOVIES";
 export const FETCH_MOVIE = "FETCH_MOVIE";
 export const CLEAR_MOVIE = "CLEAR_MOVIE";
 export const SEARCH_MOVIES = "SEARCH_MOVIES";
+export const ERROR = "ERROR";
 
 export const fetchMovies = () => async dispatch => {
   const request = await axios.get(
@@ -22,10 +23,24 @@ export const searchMovies = searchTerm => async dispatch => {
     `https://api.themoviedb.org/3/search/movie?api_key=6ed12e064b90ae1290fa326ce9e790ff&language=en-US&query=${searchTerm}&page=1&include_adult=false`
   );
 
-  dispatch({
-    type: SEARCH_MOVIES,
-    payload: request.data.results
-  });
+  if (request.data.results.length === 0) {
+    dispatch({
+      type: ERROR,
+      payload: {
+        err: "Nothing found"
+      }
+    });
+  } else {
+    dispatch({
+      type: SEARCH_MOVIES,
+      payload: request.data.results
+    });
+
+    dispatch({
+      type: ERROR,
+      payload: {}
+    });
+  }
 };
 
 export const fetchMovie = id => async dispatch => {

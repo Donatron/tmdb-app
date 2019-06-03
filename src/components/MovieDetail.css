@@ -129,12 +129,31 @@
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .MovieDetail-header {
     width: 100%;
   }
 
   .MovieDetail-details article {
-    margin-top: -140px !important;
+    margin-top: -250px !important;
+  }
+
+  .MovieDetail-details article img {
+    height: 150px;
+  }
+
+  .MovieDetail-details article .title {
+    margin-left: 12px;
+    padding-bottom: 18px;
+  }
+
+  .MovieDetail-details article .title h2 {
+    font-size: 22px;
+  }
+
+  .MovieDetail-details article .title p,
+  .MovieDetail-overview p {
+    font-size: 12px;
+    line-height: 18px;
   }
 }

@@ -12,10 +12,18 @@ class Home extends Component {
   }
 
   render() {
-    const { movies } = this.props;
+    const { movies, error } = this.props;
 
     if (movies.length === 0) {
+      setTimeout(() => {});
       return <Loader />;
+    } else if (error.err) {
+      return (
+        <div className="Home">
+          <Header />
+          <p>Sorry. Nothing matches that search. Please try again.</p>
+        </div>
+      );
     } else {
       return (
         <div className="Home">
@@ -29,7 +37,8 @@ class Home extends Component {
 
 const mapStateToProps = state => {
   return {
-    movies: state.movies
+    movies: state.movies,
+    error: state.error
   };
 };
 
