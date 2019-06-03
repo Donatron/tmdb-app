@@ -15,7 +15,7 @@ class Header extends Component {
   }
 
   handleKeyUp = e => {
-    e.preventDefault();
+    // e.preventDefault();
 
     this.setState({ searchTerm: e.target.value });
 
@@ -33,6 +33,12 @@ class Header extends Component {
             src={require(`../assets/img/tmdb-logo.png`)}
             alt="tmdb"
           />
+          <div className=" line line-1" />
+          <div className=" line line-2" />
+          <div className=" line line-3" />
+          <div className=" line line-4" />
+          <div className=" line line-5" />
+          <div className=" line line-6" />
         </div>
         <SearchBox onKeyUp={this.handleKeyUp} />
       </div>

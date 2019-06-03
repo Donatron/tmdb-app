@@ -7,8 +7,8 @@ body {
 }
 
 .App {
+  font-family: "Roboto" sans-serif !important;
   text-align: center;
   color: #9fbbc7;
-  font-family: "Roboto", sans-serif;
   margin-bottom: 5em;
 }

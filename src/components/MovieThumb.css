@@ -58,7 +58,7 @@
 }
 
 @media screen and (max-width: 768px) {
-  .MovieThumb {
-    width: 210px;
+  .MovieThumb img {
+    height: 250px;
   }
 }

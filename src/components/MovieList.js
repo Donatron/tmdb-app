@@ -40,10 +40,10 @@ class MovieList extends Component {
     return (
       <div className="MovieList">
         <div className="container">
-          <div className="row">
+          <div className="row ">
             <h3>Popular Movies</h3>
           </div>
-          <div className="row content">{this.renderMovies()}</div>
+          <div className="row content no-gutters">{this.renderMovies()}</div>
         </div>
       </div>
     );

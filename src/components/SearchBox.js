@@ -16,7 +16,7 @@ class SearchBox extends Component {
             aria-label="Search"
             id="search"
             autoComplete="off"
-            onChange={onKeyUp}
+            onKeyUp={onKeyUp}
           />
           <i className="fa fa-search" />
         </form>
