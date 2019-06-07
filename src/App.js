@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Home from "./components/Home";
 import MovieDetail from "./components/MovieDetail";
+import Footer from "./components/Footer";
 
 class App extends Component {
   render() {
@@ -14,6 +15,7 @@ class App extends Component {
             <Route path="/movie-detail/:id" exact component={MovieDetail} />
             <Route path="/" exact component={Home} />
           </Switch>
+          <Footer />
         </div>
       </Router>
     );

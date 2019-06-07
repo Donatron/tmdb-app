@@ -28,7 +28,7 @@
 
   position: absolute;
   top: 8px;
-  left: 20px;
+  left: 12px;
 }
 
 .MovieThumb h3,
@@ -59,6 +59,10 @@
 
 @media screen and (max-width: 768px) {
   .MovieThumb img {
-    height: 250px;
+    height: 225px;
+  }
+
+  .MovieThumb .badge {
+    left: 10px;
   }
 }

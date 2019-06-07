@@ -3,6 +3,7 @@ import config from "../config/config";
 
 export const FETCH_MOVIES = "FETCH_MOVIES";
 export const FETCH_MOVIE = "FETCH_MOVIE";
+export const FETCH_MOVIE_CREDITS = "FETCH_MOVIE_CREDITS";
 export const CLEAR_MOVIE = "CLEAR_MOVIE";
 export const SEARCH_MOVIES = "SEARCH_MOVIES";
 export const ERROR = "ERROR";
@@ -50,6 +51,22 @@ export const fetchMovie = id => async dispatch => {
 
   dispatch({
     type: FETCH_MOVIE,
+    payload: request.data
+  });
+
+  dispatch(fetchMovieCredits(id));
+};
+
+export const fetchMovieCredits = id => async dispatch => {
+  console.log("Fetching credits");
+  const request = await axios.get(
+    `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${
+      config.APIKey
+    }=en-US`
+  );
+
+  dispatch({
+    type: FETCH_MOVIE_CREDITS,
     payload: request.data
   });
 };

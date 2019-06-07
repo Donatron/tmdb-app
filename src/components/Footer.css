@@ -1,0 +1,21 @@
+.Footer {
+  color: rgba(1, 210, 119, 0.83);
+  margin-top: 6em;
+}
+
+.Footer a {
+  color: #a1d1e6;
+  transition: all 0.3s ease-in;
+}
+
+.Footer a:hover {
+  color: rgba(1, 210, 119, 0.83);
+  text-decoration: none;
+}
+
+.footer-credits {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}

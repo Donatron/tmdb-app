@@ -3,6 +3,7 @@ import moment from "moment";
 
 import "./MovieThumb.css";
 import config from "../config/config";
+import placeholderImg from "../assets/img/no-profile-picture.png";
 
 class MovieThumb extends Component {
   getBadgeColor(rating) {
@@ -17,19 +18,19 @@ class MovieThumb extends Component {
 
   render() {
     const imageRootURL = config.imageRootURL;
-    const { poster, rating, title, releaseDate } = this.props;
+    const { rating, title, releaseDate } = this.props;
+    let { poster } = this.props;
     let formattedDate = moment(releaseDate).format("MMM YYYY");
 
+    poster === null
+      ? (poster = placeholderImg)
+      : (poster = `${imageRootURL}/${poster}`);
     let badgeColor = this.getBadgeColor(rating);
 
     return (
       <div className="MovieThumb">
         <article className="">
-          <img
-            src={`${imageRootURL}/${poster}`}
-            className="db br2 br--top grow"
-            alt={title}
-          />
+          <img src={poster} className="db br2 br--top grow" alt={title} />
           <span className="badge" style={{ backgroundColor: badgeColor }}>
             {rating}%
           </span>

@@ -1,0 +1,9 @@
+.MovieCastList .content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.MovieCastList .container {
+  padding: 0;
+}

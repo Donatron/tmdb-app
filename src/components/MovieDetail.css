@@ -83,13 +83,15 @@
   margin-bottom: 0;
 }
 
-.MovieDetail-overview {
+.MovieDetail-overview,
+.MovieDetail-cast {
   width: 100%;
   margin: auto;
   text-align: left;
 }
 
-.MovieDetail-overview h2 {
+.MovieDetail-overview h2,
+.MovieDetail-cast h2 {
   font-family: "Montserrat" sans-serif;
   font-style: normal;
   font-weight: bold;
