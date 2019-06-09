@@ -41,6 +41,15 @@
   padding-bottom: 2em;
 }
 
+.MovieDetail-details .title h2 {
+  margin-bottom: 0;
+}
+
+.MovieDetail-details .title .genres,
+.MovieDetail-production-companies .links p {
+  font-size: 0.75em;
+}
+
 .MovieDetail-details-summary {
   display: flex;
   flex-direction: row;
@@ -91,7 +100,9 @@
 }
 
 .MovieDetail-overview h2,
-.MovieDetail-cast h2 {
+.MovieDetail-cast h2,
+.MovieDetail-links h2,
+.MovieDetail-production-companies h2 {
   font-family: "Montserrat" sans-serif;
   font-style: normal;
   font-weight: bold;
@@ -108,6 +119,44 @@
   line-height: 24px;
   /* or 150% */
 
+  color: #9fbbc7;
+}
+
+.MovieDetail-production-companies .links .link {
+  margin-bottom: 10px;
+}
+
+.MovieDetail-production-companies img {
+  margin-right: 10px;
+  background-color: #fff;
+  width: auto;
+  height: 80px;
+  box-shadow: none;
+  margin-bottom: 0;
+}
+
+.MovieDetail-links,
+.MovieDetail-production-companies {
+  width: 100%;
+  margin: auto;
+  text-align: left;
+}
+
+.MovieDetail-links .links {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.MovieDetail-links img {
+  height: 60px;
+  width: auto;
+  margin-bottom: 0;
+}
+
+.MovieDetail-links .fa {
+  font-size: 60px;
+  margin-left: 0.5em;
   color: #9fbbc7;
 }
 

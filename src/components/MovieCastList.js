@@ -10,13 +10,17 @@ class MovieCastList extends Component {
     const { cast } = credits;
 
     return cast.map(c => {
+      const { id } = c;
+
       return (
-        <div className="col-6 col-md-4 col-lg-3" key={c.id}>
-          <MovieCastThumb
-            character={c.character}
-            name={c.name}
-            img={c.profile_path}
-          />
+        <div className="col-6 col-md-4 col-lg-3" key={id}>
+          <Link to={`/cast-detail/${id}`}>
+            <MovieCastThumb
+              character={c.character}
+              name={c.name}
+              img={c.profile_path}
+            />
+          </Link>
         </div>
       );
     });

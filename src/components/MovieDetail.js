@@ -6,6 +6,7 @@ import moment from "moment";
 
 import "./MovieDetail.css";
 import config from "../config/config";
+import placeholderImg from "../assets/img/no-profile-picture.png";
 import Loader from "./Loader";
 import MovieCastList from "./MovieCastList";
 
@@ -30,6 +31,42 @@ class MovieDetail extends Component {
     };
   }
 
+  renderGenres(genres) {
+    const genresString = genres.map((genre, i) => {
+      if (i === genres.length - 1) {
+        return genre.name;
+      } else {
+        return `${genre.name}, `;
+      }
+    });
+
+    return genresString;
+  }
+
+  renderProductionCompanies(productionCompanies) {
+    const { imageRootURL } = config;
+    return productionCompanies.map(company => {
+      if (company.logo_path !== null) {
+        return (
+          <div className="col-3">
+            <img
+              src={`${imageRootURL}/${company.logo_path}`}
+              alt={company.name}
+            />
+            <p>{company.name}</p>
+          </div>
+        );
+      } else {
+        return (
+          <div className="col-3 link">
+            <img src={`${placeholderImg}`} alt={company.name} />
+            <p>{company.name}</p>
+          </div>
+        );
+      }
+    });
+  }
+
   renderMovie() {
     const { imageRootURL } = config;
     const { selectedMovie } = this.props;
@@ -41,7 +78,11 @@ class MovieDetail extends Component {
       poster_path,
       release_date,
       vote_average,
-      runtime
+      runtime,
+      genres,
+      imdb_id,
+      homepage,
+      production_companies
     } = selectedMovie;
 
     let formattedTime = this.formatRunTime(runtime);
@@ -74,6 +115,7 @@ class MovieDetail extends Component {
                   />
                   <div className="title">
                     <h2>{original_title}</h2>
+                    <p className="genres">{this.renderGenres(genres)}</p>
                     <p>
                       {formattedDate} - {vote_average * 10}% User Score{" "}
                     </p>
@@ -91,6 +133,35 @@ class MovieDetail extends Component {
                 <div className="MovieDetail-cast">
                   <h2>Cast</h2>
                   <MovieCastList />
+                </div>
+                <hr />
+                <div className="MovieDetail-production-companies">
+                  <h2>Production Companies</h2>
+                  <div className="links row">
+                    {this.renderProductionCompanies(production_companies)}
+                  </div>
+                </div>
+                <hr />
+                <div className="MovieDetail-links">
+                  <h2>Links</h2>
+                  <div className="links">
+                    <a
+                      href={`https://www.imdb.com/title/${imdb_id}`}
+                      target="_blank"
+                    >
+                      <img
+                        src="https://ia.media-imdb.com/images/M/MV5BMTczNjM0NDY0Ml5BMl5BcG5nXkFtZTgwMTk1MzQ2OTE@._V1_.png"
+                        alt="imdb"
+                      />
+                    </a>
+                    {homepage ? (
+                      <a href={homepage} target="_blank">
+                        <i className="fa fa-home" />
+                      </a>
+                    ) : (
+                      ""
+                    )}
+                  </div>
                 </div>
               </div>
             </div>

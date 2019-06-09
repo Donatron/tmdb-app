@@ -1,0 +1,87 @@
+.CastDetail-header-image {
+  position: relative;
+}
+
+.CastDetail-header-image img {
+  height: 250px;
+  width: auto;
+  border-radius: 5px;
+}
+
+.CastDetail-header-image .fa-arrow-left {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: #fff;
+}
+
+.CastDetail-details article {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+  margin-top: -20px !important;
+}
+
+.CastDetail-details .title {
+  text-align: left;
+  margin-left: 30px;
+}
+
+.CastDetail-details h2 {
+  color: #e3f4fc;
+}
+
+.CastDetail-details .title p {
+  margin-bottom: 0;
+}
+
+.CastDetail-details hr {
+  border: 1px solid #0f303d;
+  margin: 30px 0;
+}
+
+.CastDetail-biography,
+.CastDetail-links {
+  width: 100%;
+  margin: auto;
+  text-align: left;
+}
+
+.CastDetail-biography h2,
+.CastDetail-links h2 {
+  font-family: "Montserrat" sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 24px;
+  color: #e3f4fc;
+}
+
+.CastDetail-biography p {
+  font-family: "Roboto" sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  /* or 150% */
+
+  color: #9fbbc7;
+}
+
+.CastDetail-links .links {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.CastDetail-links img {
+  height: 60px;
+  width: auto;
+}
+
+.CastDetail-links .fa {
+  font-size: 60px;
+  margin-left: 0.5em;
+  color: #9fbbc7;
+}

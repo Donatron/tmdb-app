@@ -9,11 +9,19 @@ export default function Footer() {
       <div className="footer-credits">
         <p>
           Site designed by{" "}
-          <a href="https://www.jumbointeractive.com/" target="_blank">
+          <a
+            href="https://www.jumbointeractive.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Jumbo Interactive
           </a>{" "}
           and built by{" "}
-          <a href="https://donatron.github.io/portfolio" target="_blank">
+          <a
+            href="https://donatron.github.io/portfolio"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Don Macarthur
           </a>
         </p>
