@@ -9,6 +9,7 @@ import config from "../config/config";
 import placeholderImg from "../assets/img/no-profile-picture.png";
 import Loader from "./Loader";
 import MovieCastList from "./MovieCastList";
+import MovieCrewList from "./MovieCrewList";
 
 class MovieDetail extends Component {
   componentDidMount() {
@@ -85,6 +86,13 @@ class MovieDetail extends Component {
       production_companies
     } = selectedMovie;
 
+    let crew;
+
+    if (Object.keys(selectedMovie).includes("credits")) {
+      crew = selectedMovie.credits.crew;
+      console.log(crew);
+    }
+
     let formattedTime = this.formatRunTime(runtime);
 
     let formattedDate = moment(release_date).format("YYYY");
@@ -133,6 +141,11 @@ class MovieDetail extends Component {
                 <div className="MovieDetail-cast">
                   <h2>Cast</h2>
                   <MovieCastList />
+                </div>
+                <hr />
+                <div className="MovieDetail-crew">
+                  <h2>Crew</h2>
+                  {crew ? <MovieCrewList crew={crew} /> : ""}
                 </div>
                 <hr />
                 <div className="MovieDetail-production-companies">

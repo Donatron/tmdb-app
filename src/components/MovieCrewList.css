@@ -1,0 +1,9 @@
+.MovieCrewList .content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.MovieCrewList .container {
+  padding: 0;
+}

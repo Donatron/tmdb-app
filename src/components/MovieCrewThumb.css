@@ -1,0 +1,42 @@
+.MovieCrewThumb article {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 0 !important;
+}
+
+.MovieCrewThumb .title {
+  margin-left: 0;
+}
+
+.MovieCrewThumb h3,
+.MovieCrewThumb p {
+  display: inline-block !important;
+}
+
+.MovieCrewThumb h3 {
+  font-family: "Roboto" sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  margin-bottom: 0;
+
+  color: #e6f7ff;
+}
+
+.MovieCrewThumb p {
+  font-family: "Roboto" sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+
+  color: #a1d1e6;
+}
+
+.MovieCrewThumb img {
+  height: 180px;
+  width: auto;
+}

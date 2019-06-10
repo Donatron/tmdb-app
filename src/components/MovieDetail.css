@@ -93,7 +93,8 @@
 }
 
 .MovieDetail-overview,
-.MovieDetail-cast {
+.MovieDetail-cast,
+.MovieDetail-crew {
   width: 100%;
   margin: auto;
   text-align: left;
@@ -101,6 +102,7 @@
 
 .MovieDetail-overview h2,
 .MovieDetail-cast h2,
+.MovieDetail-crew h2,
 .MovieDetail-links h2,
 .MovieDetail-production-companies h2 {
   font-family: "Montserrat" sans-serif;
