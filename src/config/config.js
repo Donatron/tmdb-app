@@ -1,4 +1,5 @@
-module.exports = {
-  APIKey: "1185ff6a96a28279b241548b0c346b3a&language=en-US",
-  imageRootURL: "https://image.tmdb.org/t/p/original"
-};
+if (process.env.NODE_ENV === "production") {
+  module.exports = require("./config_prod.js");
+} else {
+  module.exports = require("./config_dev.js");
+}

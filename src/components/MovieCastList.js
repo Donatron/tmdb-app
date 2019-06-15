@@ -19,6 +19,7 @@ class MovieCastList extends Component {
               character={c.character}
               name={c.name}
               img={c.profile_path}
+              castMember={c}
             />
           </Link>
         </div>
