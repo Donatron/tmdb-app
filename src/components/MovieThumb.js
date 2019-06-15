@@ -16,32 +16,37 @@ class MovieThumb extends Component {
     }
   }
 
-  render() {
+  renderMovieThumb = movie => {
     const imageRootURL = config.imageRootURL;
-    const { rating, title, releaseDate } = this.props;
-    let { poster } = this.props;
+    const { title, releaseDate } = movie;
+    const rating = movie.vote_average * 10;
+    let { poster_path } = movie;
     let formattedDate = moment(releaseDate).format("MMM YYYY");
 
-    poster === null
-      ? (poster = placeholderImg)
-      : (poster = `${imageRootURL}/${poster}`);
+    poster_path === null
+      ? (poster_path = placeholderImg)
+      : (poster_path = `${imageRootURL}/${poster_path}`);
     let badgeColor = this.getBadgeColor(rating);
 
     return (
-      <div className="MovieThumb">
-        <article className="">
-          <img src={poster} className="db br2 br--top grow" alt={title} />
-          <span className="badge" style={{ backgroundColor: badgeColor }}>
-            {rating}%
-          </span>
-          <div className="title">
-            <h3>{title}</h3>
-            <br />
-            <p>{formattedDate}</p>
-          </div>
-        </article>
-      </div>
+      <article className="">
+        <img src={poster_path} className="db br2 br--top grow" alt={title} />
+        <span className="badge" style={{ backgroundColor: badgeColor }}>
+          {rating}%
+        </span>
+        <div className="title">
+          <h3>{title}</h3>
+          <br />
+          <p>{formattedDate}</p>
+        </div>
+      </article>
     );
+  };
+
+  render() {
+    const { movie } = this.props;
+
+    return <div className="MovieThumb">{this.renderMovieThumb(movie)}</div>;
   }
 }
 

@@ -10,11 +10,7 @@ class MovieCrewList extends Component {
       return (
         <div className="col-6 col-md-4 col-lg-3" key={c.id}>
           <Link to={`/crew-detail/${c.id}`}>
-            <MovieCrewThumb
-              name={c.name}
-              job={c.job}
-              profile_path={c.profile_path}
-            />
+            <MovieCrewThumb crewMember={c} />
           </Link>
         </div>
       );

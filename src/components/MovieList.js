@@ -14,12 +14,7 @@ class MovieList extends Component {
       return (
         <div className="col-6 col-md-4 col-lg-3" key={i}>
           <Link to={`/movie-detail/${id}`}>
-            <MovieThumb
-              title={movie.title}
-              releaseDate={movie.release_date}
-              poster={movie.poster_path}
-              rating={movie.vote_average * 10}
-            />
+            <MovieThumb movie={movie} />
           </Link>
         </div>
       );
